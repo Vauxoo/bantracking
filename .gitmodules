@@ -6,3 +6,8 @@
 	path = sh-tools
 	url = git@git.vauxoo.com:vauxoo/sh-tools.git
 	branch = 16.0
+
+[submodule "myrrkel/odoo-openai"]
+	path = myrrkel/odoo-openai
+	url = git@github.com:myrrkel/odoo-openai.git
+	branch = 16.0
