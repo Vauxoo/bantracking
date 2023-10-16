@@ -4,7 +4,7 @@ Get Info for the Installed Services
 Call a method
 -------------
 
-1. You can use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
+1. Use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
 
     ```python
     @route('/jsonrpc', type='json', auth="none", save_session=False)
@@ -50,12 +50,12 @@ Get info about the installed services in your database
 
     ```python
     @api.model
-    def get_installed_services(self, values):
+    def get_installed_services(self, values, offset=0, limit=None, order=None):
         """Get the installed items from Confisa.
         Returns:
             list[dict]: A list containing dictionaries of installed item orders.
         """
-        return self._get_installed_services(values)
+        return self._get_installed_services(values, offset, limit, order)
     ```
 
 ## Input Parameters
@@ -107,6 +107,9 @@ The method returns a JSON object as a response:
                 }
             ],
             {
+                "offset": 0,
+                "limit": 2,
+                "order": "id asc",
                 "context": {}
             }
         ]
@@ -155,6 +158,9 @@ curl --location 'http://localhost:8069/jsonrpc' \
                 }
             ],
             {
+                "offset": 0,
+                "limit": 2,
+                "order": "id asc",
                 "context": {}
             }
         ]

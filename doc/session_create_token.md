@@ -35,7 +35,7 @@ The method expects to receive a JSON object in the request body with the followi
 Generate a valid Token in your database
 -------------------------------------
 
-1. Use `get_token` method on a database to get a token with authenticated user in Odoo:
+1. Use `get_token` method on a database to get a token with an authenticated user in Odoo:
 
     ```python
     @api.model

@@ -4,7 +4,7 @@ Pinging the service to check its availability
 Call a method
 -------------
 
-1. You can use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
+1. Use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
 
     ```python
     @route('/jsonrpc', type='json', auth="none", save_session=False)
@@ -78,17 +78,13 @@ The method returns a BOOL as a response:
     "id": 16,
     "params": {
         "service": "object",
-        "method": "execute_kw",
+        "method": "execute", // using `execute` instead of `execute_kw` allows to avoid the empty arg and kwargs
         "args": [
             "db_name", // database name
             2,  // uid
             "admin", // password or token
             "res.users",
-            "ping",
-            [],
-            {
-                "context": {}
-            }
+            "ping"
         ]
     }
 }
@@ -113,18 +109,14 @@ curl --location 'http://localhost:8069/jsonrpc' \
     "jsonrpc": "2.0",
     "id": 16,
     "params": {
-        "service": "common",
-        "method": "authenticate",
+        "service": "object",
+        "method": "execute",
         "args": [
             "db_name",
             2,
             "admin",
             "res.users",
-            "ping",
-            [],
-            {
-                "context": {}
-            }
+            "ping"
         ]
     }
 }'

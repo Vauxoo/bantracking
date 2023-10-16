@@ -4,7 +4,7 @@ Get the identification types using Jsonrpc
 Call a method
 ---
 
-1. Use `jsonrpc` to execute specific methods with JSON-RPC and receive the results back in JSON format:
+1. Use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
 
     ```python
     @route('/jsonrpc', type='json', auth="none", save_session=False)
@@ -85,17 +85,13 @@ The method returns a JSON object as a response:
     "id": 16,
     "params": {
         "service": "object",
-        "method": "execute_kw",
+        "method": "execute",
         "args": [
             "confisa", // database
             2, // uid
             "admin", // password or token
             "sale.order", // model
-            "get_identification_types", // public method
-            [],
-            { // kwargs
-                "context": {}
-            }
+            "get_identification_types" // public method
         ]
     }
 }
@@ -129,23 +125,18 @@ The method returns a JSON object as a response:
 ```bash
 curl --location --request GET 'http://localhost:8069/jsonrpc' \
 --header 'Content-Type: application/json' \
---header 'Cookie: session_id=66105dfbe9ebf21701026c0e354b0e8d5a291494' \
 --data-raw '{
     "jsonrpc": "2.0",
     "id": 16,
     "params": {
         "service": "object",
-        "method": "execute_kw",
+        "method": "execute",
         "args": [
             "confisa", 
             2, 
             "admin", 
             "sale.order",
-            "get_identification_types",
-            [],
-            {
-                "context": {}
-            }
+            "get_identification_types"
         ]
     }
 }'

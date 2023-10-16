@@ -39,7 +39,7 @@ The method returns a JSON object as a response:
 | Name                  | Type    | Description                                                                           |
 |-----------------------|---------|---------------------------------------------------------------------------------------|
 | `uid`                 | integer | ID of the authenticated user in Odoo.                                                 |
-| `is_system`           | bool    | Admin user with global settng access. (group_system)                                  |
+| `is_system`           | bool    | Admin user with global setting access. (group_system)                                  |
 | `is_admin`            | bool    | The user has administrator privileges. (SUPERUSER_ID or group_erp_manager)            |
 | `user_context`        | dict    | User preferences. (lang, tz)                                                          |
 | `db`                  | string  | DB name.                                                                              |
@@ -164,6 +164,7 @@ The method returns a JSON object as a response:
 ```bash
 curl --location 'http://localhost:8069/web/session/authenticate' \
 --header 'Content-Type: application/json' \
+--header 'Cookie: session_id=d2dc0193ea4a45bb94251506af9dd1314c00300a' \
 --data '{
     "jsonrpc": "2.0",
     "id": 16,

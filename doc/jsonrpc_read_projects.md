@@ -4,7 +4,7 @@ Read Projects using Jsonrpc
 Call a method
 ---
 
-1. Use `jsonrpc` to execute specific methods with JSON-RPC and receive the results back in JSON format:
+1. Use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
 
     ```python
     @route('/jsonrpc', type='json', auth="none", save_session=False)
@@ -140,7 +140,7 @@ The method expects to receive a JSON object in the request body with the followi
 | `fields`               | list    | Project fields to read                                                  |
 | `offset`               | integer | The offset for the records to retrieve                                  |
 | `limit`                | integer | Maximum limit of records to retrieve                                    |
-| `order`                | string  | Specifies the ordering of the results for a specific field. Use `asc` for ascending order or `desc` for descending order. (eg. "id asc") |
+| `order`                | string  | Specifies the ordering of the results for a specific field. Use `asc` for ascending order or `desc` for descending order. (e.g. "id asc") |
 
 ## Response
 
@@ -207,7 +207,6 @@ The method returns a JSON object as a response:
 ```bash
 curl --location --request GET 'http://localhost:8069/jsonrpc' \
 --header 'Content-Type: application/json' \
---header 'Cookie: session_id=66105dfbe9ebf21701026c0e354b0e8d5a291494' \
 --data-raw '{
     "jsonrpc": "2.0",
     "id": 16,

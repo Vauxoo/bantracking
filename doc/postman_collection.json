@@ -101,7 +101,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"res.partner\",\n        \"method\": \"get_debtor\",\n        \"args\": [],\n        \"kwargs\": {}\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"res.partner\",\n        \"method\": \"get_debtor\",\n        \"args\": [],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 3,\n            \"order\": \"id asc\",\n            \"context\": {}\n        }\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -130,7 +130,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"get_services\",\n        \"args\": [\n            {\n                \"loan_id\": \"104\",\n                \"customer_ID\": \"34878\",\n                \"vat\": \"1-01-09009-1\",\n                \"vin_sn\": \"4567890\",\n                \"debtor_code\": \"2132\",\n                \"invoice_date\": \"2023-07-25\",\n                \"confisa_admission_date\": \"2023-07-13\"\n            }\n        ],\n        \"kwargs\": {}\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"get_services\",\n        \"args\": [\n            {\n                \"loan_id\": \"104\",\n                \"customer_ID\": \"34878\",\n                \"vat\": \"1-01-09009-1\",\n                \"vin_sn\": \"4567890\",\n                \"debtor_code\": \"2132\",\n                \"invoice_date\": \"2023-07-25\",\n                \"confisa_admission_date\": \"2023-07-13\"\n            }\n        ],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 1,\n            \"order\": \"id asc\",\n            \"context\": {}\n        }\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -159,7 +159,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"get_invoices_info\",\n        \"args\": [\n            {\n                \"debtor_code\": \"2132\",\n                \"invoice_date\": \"2023-07-25\"\n            }\n        ],\n        \"kwargs\": {}\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"get_invoices_info\",\n        \"args\": [\n            {\n                \"debtor_code\": \"2132\",\n                \"invoice_date\": \"2023-07-25\"\n            }\n        ],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 1,\n            \"order\": \"id asc\",\n            \"context\": {}\n        }\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -362,7 +362,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"get_installed_services\",\n        \"args\": [\n            {\n                \"loan_id\": \"\",\n                \"customer_ID\": \"\",\n                \"vin_sn\": \"\",\n                \"debtor_code\": \"\"\n            }\n        ],\n        \"kwargs\": {}\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"get_installed_services\",\n        \"args\": [\n            {\n                \"loan_id\": \"\",\n                \"customer_ID\": \"\",\n                \"vin_sn\": \"\",\n                \"debtor_code\": \"\"\n            }\n        ],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 2,\n            \"order\": \"id desc\",\n            \"context\": {}\n        }\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -713,7 +713,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"action_invoice_subscription\",\n            [\n                48\n            ],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"create_recurring_invoice\",\n            [\n                48\n            ],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -747,7 +747,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\", // db_name\n            2,\n            \"admin\",\n            \"res.users\",\n            \"get_token\",\n            [],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}\n",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute\",\n        \"args\": [\n            \"openerp_70104_confisa\", // db_name\n            2,\n            \"admin\",\n            \"res.users\",\n            \"ping\"\n        ]\n    }\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -793,7 +793,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\", // db_name\n            2,\n            \"admin\",\n            \"res.users\",\n            \"get_token\",\n            [],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}\n",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute\",\n        \"args\": [\n            \"openerp_70104_confisa\", // db_name\n            2,\n            \"admin\",\n            \"res.users\",\n            \"get_token\"\n        ]\n    }\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -816,7 +816,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\", // database\n            2, // uid\n            \"admin\", // password or token\n            \"res.partner\", // model\n            \"get_debtor\", // public method\n            [],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\", // database\n            2, // uid\n            \"admin\", // password or token\n            \"res.partner\", // model\n            \"get_debtor\", // public method\n            [],\n            {\n                \"offset\": 0,\n                \"limit\": 3,\n                \"order\": \"id asc\",\n                \"context\": {}\n            }\n        ]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -839,7 +839,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"get_services\",\n            [\n                {\n                    \"loan_id\": \"104\",\n                    \"customer_ID\": \"34878\",\n                    \"vat\": \"1-01-09009-1\",\n                    \"vin_sn\": \"4567890\",\n                    \"debtor_code\": \"2132\",\n                    \"invoice_date\": \"2023-07-25\",\n                    \"confisa_admission_date\": \"2023-07-13\"\n                }\n            ],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"get_services\",\n            [\n                {\n                    \"loan_id\": \"104\",\n                    \"customer_ID\": \"34878\",\n                    \"vat\": \"1-01-09009-1\",\n                    \"vin_sn\": \"4567890\",\n                    \"debtor_code\": \"2132\",\n                    \"invoice_date\": \"2023-07-25\",\n                    \"confisa_admission_date\": \"2023-07-13\"\n                }\n            ],\n            {\n                \"offset\": 0,\n                \"limit\": 1,\n                \"order\": \"id asc\",\n                \"context\": {}\n            }\n        ]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -862,7 +862,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\", // database\n            2, // uid\n            \"admin\",\n            \"sale.order\",\n            \"get_invoices_info\",\n            [\n                {\n                    \"debtor_code\": \"2132\",\n                    \"invoice_date\": \"2023-07-25\"\n                }\n            ],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\", // database\n            2, // uid\n            \"admin\",\n            \"sale.order\",\n            \"get_invoices_info\",\n            [\n                {\n                    \"debtor_code\": \"2132\",\n                    \"invoice_date\": \"2023-07-25\"\n                }\n            ],\n            {\n                \"offset\": 0,\n                \"limit\": 1,\n                \"order\": \"id asc\",\n                \"context\": {}\n            }\n        ]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -908,7 +908,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"bantracking-confisa-jsonrpc-16-0-2-9136189\", // db_name\n            2,\n            \"35c6c779ec68201b52b3e3db90896e1029759a30\",\n            \"project.project\",\n            \"search_read\",\n            [\n                [[\"partner_id\", \"in\", [49, 50]]]\n            ],\n            {\n                \"fields\": [\"id\", \"name\"],\n                \"offset\": 0,\n                \"limit\": 10,\n                \"order\": \"id asc\",\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\", // db_name\n            2,\n            \"admin\",\n            \"project.project\",\n            \"search_read\",\n            [\n                [[\"partner_id\", \"in\", [49, 50]]]\n            ],\n            {\n                \"fields\": [\"id\", \"name\"],\n                \"offset\": 0,\n                \"limit\": 10,\n                \"order\": \"id asc\",\n                \"context\": {}\n            }\n        ]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1023,7 +1023,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"get_installed_services\",\n            [\n                {\n                    \"loan_id\": \"10273\",\n                    \"customer_ID\": \"34878\",\n                    \"vin_sn\": \"4567890\",\n                    \"debtor_code\": \"2132\"\n                }\n            ],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"get_installed_services\",\n            [\n                {\n                    \"loan_id\": \"10273\",\n                    \"customer_ID\": \"34878\",\n                    \"vin_sn\": \"4567890\",\n                    \"debtor_code\": \"2132\"\n                }\n            ],\n            {\n                \"offset\": 0,\n                \"limit\": 2,\n                \"order\": \"id asc\",\n                \"context\": {}\n            }\n        ]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1069,7 +1069,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"get_identification_types\",\n            [],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"get_identification_types\"\n        ]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1299,7 +1299,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"action_invoice_subscription\",\n            [\n                47\n            ],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"create_recurring_invoice\",\n            [\n                47\n            ],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"

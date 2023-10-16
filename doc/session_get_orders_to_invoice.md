@@ -103,7 +103,7 @@ The method expects to receive a JSON object in the request body with the followi
 
 | Name                   | Type    | Description                                                             |
 |------------------------|---------|-------------------------------------------------------------------------|
-| `fields`               | list    | Order fields to read (eg. id, name, loan_id, customer_ID, vin_sn, debtor_code, invoice_status, state)   |
+| `fields`               | list    | Order fields to read (e.g. id, name, loan_id, customer_ID, vin_sn, debtor_code, invoice_status, state)   |
 
 ## Response
 

@@ -68,7 +68,7 @@ The method expects to receive a JSON object in the request body with the followi
 | `partner_id`                    | integer           | Partner ID                                          |
 | `loan_id`                       | integer           | Loan ID                                             |
 | `recurrence_id`                 | integer           | Recurrence ID                                       |
-| `confisa_admission_date`        | string            | Admision Date to Confisa (eg. "2023-07-22")         |
+| `confisa_admission_date`        | string            | Admission Date to Confisa (e.g. "2023-07-22")         |
 | `order_line_ids`                | list              | Dictionary of product ID's                          |
 | `identity_document_type`        | string            | Documentation Type (cedula, passport, rnc)          |
 | `customer_ID`                   | string            | Indicates the number (ID) of the Identification     |

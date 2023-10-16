@@ -4,7 +4,7 @@ Create Token for authentication
 Call a method
 -------------
 
-1. You can use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
+1. Use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
 
     ```python
     @route('/jsonrpc', type='json', auth="none", save_session=False)
@@ -46,7 +46,7 @@ The method expects to receive a JSON object in the request body with the followi
 Generate a valid Token in your database
 -------------------------------------
 
-1. Use `get_token` method on a database to get a token with authenticated user in Odoo:
+1. Use `get_token` method on a database to get a token with an authenticated user in Odoo:
 
     ```python
     @api.model
@@ -76,17 +76,13 @@ The method returns a STR as a response:
     "id": 16,
     "params": {
         "service": "object",
-        "method": "execute_kw",
+        "method": "execute", // using `execute` instead of `execute_kw` allows to avoid the empty arg and kwargs
         "args": [
             "db_name", // database name
             "login",  // Username
             "admin", // password
             "res.users",
-            "get_token",
-            [],
-            {
-                "context": {}
-            }
+            "get_token"
         ]
     }
 }
@@ -111,18 +107,14 @@ curl --location 'http://localhost:8069/jsonrpc' \
     "jsonrpc": "2.0",
     "id": 16,
     "params": {
-        "service": "common",
-        "method": "authenticate",
+        "service": "object",
+        "method": "execute",
         "args": [
             "db_name",
             "admin",
             "admin",
             "res.users",
-            "get_token",
-            [],
-            {
-                "context": {}
-            }
+            "get_token"
         ]
     }
 }'

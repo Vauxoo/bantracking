@@ -4,7 +4,7 @@ Read Vehicle info using Jsonrpc
 Call a method
 -------------
 
-1. Use `jsonrpc` to execute specific methods with JSON-RPC and receive the results back in JSON format:
+1. Use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
 
     ```python
     @route('/jsonrpc', type='json', auth="none", save_session=False)
@@ -217,7 +217,6 @@ The method returns a JSON object as a response:
 ```bash
 curl --location --request GET 'http://localhost:8069/jsonrpc' \
 --header 'Content-Type: application/json' \
---header 'Cookie: session_id=66105dfbe9ebf21701026c0e354b0e8d5a291494' \
 --data-raw '{
     "jsonrpc": "2.0",
     "id": 16,
@@ -372,7 +371,6 @@ The method returns a JSON object as a response:
 ```bash
 curl --location 'http://localhost:8069/jsonrpc' \
 --header 'Content-Type: application/json' \
---header 'Cookie: session_id=a0abde218c24f8d13246eae98697e66cb9ceff2a' \
 --data '{
     "jsonrpc": "2.0",
     "id": 16,
@@ -571,7 +569,6 @@ The method returns a JSON object as a response:
 ```bash
 curl --location --request GET 'http://localhost:8069/jsonrpc' \
 --header 'Content-Type: application/json' \
---header 'Cookie: session_id=66105dfbe9ebf21701026c0e354b0e8d5a291494' \
 --data-raw '{
     "jsonrpc": "2.0",
     "id": 16,

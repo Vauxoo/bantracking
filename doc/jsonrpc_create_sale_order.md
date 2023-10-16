@@ -4,7 +4,7 @@ Create Sales Orders
 Call a method
 -------------
 
-1. You can use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
+1. Use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
 
     ```python
     @route('/jsonrpc', type='json', auth="none", save_session=False)
@@ -74,7 +74,7 @@ The method expects to receive a JSON object in the request body with the followi
 | `partner_id`                    | integer           | Partner ID                                          |
 | `loan_id`                       | integer           | Loan ID                                             |
 | `recurrence_id`                 | integer           | Recurrence ID                                       |
-| `confisa_admission_date`        | string            | Admission Date to Confisa (eg. "2023-07-22")        |
+| `confisa_admission_date`        | string            | Admission Date to Confisa (e.g. "2023-07-22")        |
 | `order_line_ids`                | list              | Dictionary of product ID's                          |
 | `identity_document_type`        | string            | Documentation Type (cedula, passport, rnc)          |
 | `customer_ID`                   | string            | Indicates the number (ID) of the Identification     |

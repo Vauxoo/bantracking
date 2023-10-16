@@ -38,13 +38,12 @@ Get info about the active services in your database
 
     ```python
     @api.model
-    def get_debtor(self):
-        """
-        Get debtor information for Confisa partners.
+    def get_debtor(self, offset=0, limit=None, order=None):
+        """Get debtor information for Confisa partners.
         Returns:
             list: A list of dictionaries, each representing a Confisa partner's debtor information.
         """
-        confisa_partners = self.get_confisa_partners()
+        confisa_partners = self.get_confisa_partners(offset, limit, order)
         payload = []
         for partner in confisa_partners:
             payload.append(
@@ -56,6 +55,7 @@ Get info about the active services in your database
                 }
             )
         return payload
+
     ```
 
 ## URL
@@ -86,7 +86,12 @@ The method returns a JSON object as a response:
         "model": "res.partner",
         "method": "get_debtor",
         "args": [],
-        "kwargs": {}
+        "kwargs": {
+            "offset": 0,
+            "limit": 3,
+            "order": "id asc",
+            "context": {}
+        }
     }
 }
 ```
@@ -127,7 +132,12 @@ curl --location 'http://localhost:55001/web/dataset/call_kw/res.partner/get_debt
         "model": "res.partner",
         "method": "get_debtor",
         "args": [],
-        "kwargs": {}
+        "kwargs": {
+            "offset": 0,
+            "limit": 3,
+            "order": "id asc",
+            "context": {}
+        }
     }
 }'
 ```

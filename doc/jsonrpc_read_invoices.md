@@ -4,7 +4,7 @@ Read Invoices using Jsonrpc
 Call a method
 ---
 
-1. Use `jsonrpc` to execute specific methods with JSON-RPC and receive the results back in JSON format:
+1. Use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
 
     ```python
     @route('/jsonrpc', type='json', auth="none", save_session=False)
@@ -140,7 +140,7 @@ The method expects to receive a JSON object in the request body with the followi
 | `fields`               | list    | Invoice fields to read                                                  |
 | `offset`               | integer | The offset for the records to retrieve                                  |
 | `limit`                | integer | Maximum limit of records to retrieve                                    |
-| `order`                | string  | Specifies the ordering of the results for a specific field. Use `asc` for ascending order or `desc` for descending order. (eg. "id asc") |
+| `order`                | string  | Specifies the ordering of the results for a specific field. Use `asc` for ascending order or `desc` for descending order. (e.g. "id asc") |
 
 ## Response
 
@@ -210,7 +210,6 @@ The method returns a JSON object as a response:
 ```bash
 curl --location 'localhost:8069/jsonrpc' \
 --header 'Content-Type: application/json' \
---header 'Cookie: frontend_lang=en_US; session_id=fe5e1eb536a9092952b121f9b16293a6cfb5b550' \
 --data '{
     "jsonrpc": "2.0",
     "id": 16,

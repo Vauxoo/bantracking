@@ -106,7 +106,7 @@ The method expects to receive a JSON object in the request body with the followi
 | `fields`               | list    | Invoice fields to read                                                  |
 | `offset`               | integer | The offset for the records to retrieve                                  |
 | `limit`                | integer | Maximum limit of records to retrieve                                    |
-| `order`                | string  | Specifies the ordering of the results for a specific field. Use `asc` for ascending order or `desc` for descending order. (eg. "id asc") |
+| `order`                | string  | Specifies the ordering of the results for a specific field. Use `asc` for ascending order or `desc` for descending order. (e.g. "id asc") |
 
 ## Response
 

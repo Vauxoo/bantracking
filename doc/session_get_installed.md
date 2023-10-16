@@ -38,12 +38,12 @@ Get info about the installed services in your database
 
     ```python
     @api.model
-    def get_installed_services(self, values):
+    def get_installed_services(self, values, offset=0, limit=None, order=None):
         """Get the installed items from Confisa.
         Returns:
             list[dict]: A list containing dictionaries of installed item orders.
         """
-        return self._get_installed_services(values)
+        return self._get_installed_services(values, offset, limit, order)
     ```
 
 ## URL
@@ -94,7 +94,12 @@ The method returns a JSON object as a response:
                 "debtor_code": "2132"
             }
         ],
-        "kwargs": {}
+        "kwargs": {
+            "offset": 0,
+            "limit": 2,
+            "order": "id desc",
+            "context": {}
+        }
     }
 }
 ```
@@ -134,7 +139,12 @@ curl --location 'http://localhost:8069/web/dataset/call_kw/sale.order/get_instal
                 "debtor_code": "2132"
             }
         ],
-        "kwargs": {}
+        "kwargs": {
+            "offset": 0,
+            "limit": 2,
+            "order": "id desc",
+            "context": {}
+        }
     }
 }'
 ```

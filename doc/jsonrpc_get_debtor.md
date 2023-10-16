@@ -4,7 +4,7 @@ Get Debtors Using Jsonrpc
 Call a method
 -------------
 
-1. You can use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
+1. Use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
 
     ```python
     @route('/jsonrpc', type='json', auth="none", save_session=False)
@@ -50,13 +50,12 @@ Get info about the active services in your database
 
     ```python
     @api.model
-    def get_debtor(self):
-        """
-        Get debtor information for Confisa partners.
+    def get_debtor(self, offset=0, limit=None, order=None):
+        """Get debtor information for Confisa partners.
         Returns:
             list: A list of dictionaries, each representing a Confisa partner's debtor information.
         """
-        confisa_partners = self.get_confisa_partners()
+        confisa_partners = self.get_confisa_partners(offset, limit, order)
         payload = []
         for partner in confisa_partners:
             payload.append(
@@ -68,6 +67,7 @@ Get info about the active services in your database
                 }
             )
         return payload
+
     ```
 
 ## Input Parameters
@@ -99,6 +99,9 @@ The method returns a JSON object as a response:
             "get_debtor", // public method
             [],
             {
+                "offset": 0,
+                "limit": 3,
+                "order": "id asc",
                 "context": {}
             }
         ]
@@ -145,9 +148,12 @@ curl --location 'http://localhost:55001/jsonrpc' \
             2, 
             "admin", 
             "res.partner", 
-            "get_debtor", 
+            "get_debtor"
             [],
             {
+                "offset": 0,
+                "limit": 3,
+                "order": "id asc",
                 "context": {}
             }
         ]

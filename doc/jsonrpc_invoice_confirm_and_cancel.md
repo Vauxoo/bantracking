@@ -4,7 +4,7 @@ Confirm or Cancel an Invoice Using Jsonrpc
 Call a method
 --------------
 
-1. Use `jsonrpc` to execute specific methods with JSON-RPC and receive the results back in JSON format:
+1. Use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
 
     ```python
     @route('/jsonrpc', type='json', auth="none", save_session=False)
@@ -116,7 +116,6 @@ The method returns a JSON object as a response:
 ```bash
 curl --location 'http://localhost:8069/jsonrpc' \
 --header 'Content-Type: application/json' \
---header 'Cookie: session_id=e2afc8dc5a683c142c60305d13839f280f93ba25' \
 --data '{
     "jsonrpc": "2.0",
     "id": 16,
@@ -207,7 +206,6 @@ The method returns a JSON object as a response:
 ```bash
 curl --location 'http://localhost:8069/jsonrpc' \
 --header 'Content-Type: application/json' \
---header 'Cookie: session_id=e2afc8dc5a683c142c60305d13839f280f93ba25' \
 --data '{
     "jsonrpc": "2.0",
     "id": 16,

@@ -4,7 +4,7 @@ Get Info for the Active Services
 Call a method
 -------------
 
-1. You can use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
+1. Use `jsonrpc` to execute specific Odoo methods with JSON-RPC and receive the results back in JSON format:
 
     ```python
     @route('/jsonrpc', type='json', auth="none", save_session=False)
@@ -50,12 +50,13 @@ Get info about the active services in your database
 
     ```python
     @api.model
-    def get_services(self, values):
+    def get_services(self, values, offset=0, limit=None, order=None):
         """Retrieve service information.
         Returns:
             dict: A dictionary containing service information for each order.
         """
-        return self._get_services(values)
+        return self._get_services(values, offset, limit, order)
+
     ```
 
 ## Input Parameters
@@ -75,8 +76,8 @@ The method expects to receive a JSON object in the request body with the followi
 | `vat`                           | string            | Indicates the Debtor RNC                                   |
 | `vin_sn`                        | string            | Chassis                                                    |
 | `debtor_code`                   | string            | Debtor Code                                                |
-| `invoice_date`                  | string            | Indicates the Invoice Date (eg. "2023-07-25")              |
-| `confisa_admission_date`        | string            | Indicates the Admission Date to Confisa (eg. "2023-07-25") |
+| `invoice_date`                  | string            | Indicates the Invoice Date (e.g. "2023-07-25")              |
+| `confisa_admission_date`        | string            | Indicates the Admission Date to Confisa (e.g. "2023-07-25") |
 
 ## Response
 
@@ -84,7 +85,7 @@ The method returns a JSON object as a response:
 
 | Name                           | Type    | Description                                                     |
 |--------------------------------|---------|-----------------------------------------------------------------|
-| `CorporationLeasingServices`   | list    | Sales order data. (id, name, partner_id, debtor, debtor_code, invoice_date, invoice_status, service_status, vehicle_desciption, vin_ns, vat, loan_id, customer_name, identity_document_type, confisa_admission_date, products)         |
+|                                | list    | List of dictionaries with Sales order data. (id, name, partner_id, debtor, debtor_code, invoice_date, invoice_status, service_status, vehicle_desciption, vin_ns, vat, loan_id, customer_name, identity_document_type, confisa_admission_date, products)         |
 
 ## Request Example
 
@@ -113,6 +114,9 @@ The method returns a JSON object as a response:
                 }
             ],
             {
+                "offset": 0,
+                "limit": 1,
+                "order": "id asc",
                 "context": {}
             }
         ]
@@ -126,49 +130,47 @@ The method returns a JSON object as a response:
 {
     "jsonrpc": "2.0",
     "id": 16,
-    "result": {
-        "CorporationLeasingServices": [
-            {
-                "id": 127,
-                "name": "S00001", // order name
-                "partner_id": 10, // company_id or partner_id
-                "debtor": "Deco Addict",
-                "debtor_code": "2132",
-                "invoice": [
-                    {
-                        "invoice_name": "INV/2023/00013",
-                        "invoice_date": "2023-07-27"
-                    }
-                ],
-                "invoice_status": "to invoice",
-                "service_status": "ACTIVE",
-                "vehicle_description": "Bmw Serie 1 COLOR red PLATE QW242 YEAR 2022",
-                "vin_ns": "4567890", // Chassis
-                "vat": "1-01-09009-1", // RNC
-                "loan_id": "124",
-                "customer_name": "John",
-                "customer_ID": "34878",
-                "identity_document_type": "cedula",
-                "confisa_admission_date": "2023-07-17",
-                "products": [
-                    {
-                        "id": 141,
-                        "name": "PLAN AVAL MENSUAL",
-                        "type": "service",
-                        "price": 550.85,
-                        "quantity": 1.0,
-                    },
-                    {
-                        "id": 212,
-                        "name": "EV26",
-                        "type": "product",
-                        "price": 0.0,
-                        "quantity": 1.0,
-                    }
-                ],
-            }
-        ]
-    }
+    "result": [
+        {
+            "id": 127,
+            "name": "S00001", // order name
+            "partner_id": 10, // company_id or partner_id
+            "debtor": "Deco Addict",
+            "debtor_code": "2132",
+            "invoice": [
+                {
+                    "invoice_name": "INV/2023/00013",
+                    "invoice_date": "2023-07-27"
+                }
+            ],
+            "invoice_status": "to invoice",
+            "service_status": "ACTIVE",
+            "vehicle_description": "Bmw Serie 1 COLOR red PLATE QW242 YEAR 2022",
+            "vin_ns": "4567890", // Chassis
+            "vat": "1-01-09009-1", // RNC
+            "loan_id": "124",
+            "customer_name": "John",
+            "customer_ID": "34878",
+            "identity_document_type": "cedula",
+            "confisa_admission_date": "2023-07-17",
+            "products": [
+                {
+                    "id": 141,
+                    "name": "PLAN AVAL MENSUAL",
+                    "type": "service",
+                    "price": 550.85,
+                    "quantity": 1.0,
+                },
+                {
+                    "id": 212,
+                    "name": "EV26",
+                    "type": "product",
+                    "price": 0.0,
+                    "quantity": 1.0,
+                }
+            ],
+        }
+    ]
 }
 ```
 
@@ -201,6 +203,9 @@ curl --location 'http://localhost:8069/jsonrpc' \
                 }
             ],
             {
+                "offset": 0,
+                "limit": 1,
+                "order": "id asc",
                 "context": {}
             }
         ]
