@@ -1,0 +1,1266 @@
+{
+	"info": {
+		"_postman_id": "340ca065-c5c7-49a5-a06d-39bc0308ae0b",
+		"name": "API Confisa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14302518"
+	},
+	"item": [
+		{
+			"name": "Session",
+			"item": [
+				{
+					"name": "Session Ping",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"res.users\",\n        \"method\": \"ping\",\n        \"args\": [],\n        \"kwargs\": {}\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/res.users/ping",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"res.users",
+								"ping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"params\":{\n        \"db\": \"openerp_70104_confisa\",\n        \"login\": \"admin\",\n        \"password\": \"admin\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/session/authenticate",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"session",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Create Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"res.users\",\n        \"method\": \"get_token\",\n        \"args\": [],\n        \"kwargs\": {}\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/res.users/get_token",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"res.users",
+								"get_token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Get Debtor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"res.partner\",\n        \"method\": \"get_debtor\",\n        \"args\": [],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 3,\n            \"order\": \"id asc\",\n            \"context\": {}\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/res.partner/get_debtor",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"res.partner",
+								"get_debtor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Get Services",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"get_services\",\n        \"args\": [\n            {\n                \"loan_id\": \"104\",\n                \"customer_ID\": \"34878\",\n                \"vat\": \"1-01-09009-1\",\n                \"vin_sn\": \"4567890\",\n                \"debtor_code\": \"2132\",\n                \"invoice_date\": \"2023-07-25\",\n                \"confisa_admission_date\": \"2023-07-13\"\n            }\n        ],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 1,\n            \"order\": \"id asc\",\n            \"context\": {}\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/sale.order/get_services",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"sale.order",
+								"get_services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Get Invoices Info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"get_invoices_info\",\n        \"args\": [\n            {\n                \"debtor_code\": \"2132\",\n                \"invoice_date\": \"2023-07-25\"\n            }\n        ],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 1,\n            \"order\": \"id asc\",\n            \"context\": {}\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/sale.order/get_invoices_info",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"sale.order",
+								"get_invoices_info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Read Confisa Products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"product.product\",\n        \"method\": \"get_confisa_products\",\n        \"args\": [],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 2\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/product.product/get_confisa_products",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"product.product",
+								"get_confisa_products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Read Projects",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"project.project\",\n        \"method\": \"get_projects\",\n        \"args\": [],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 2\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/project.project/get_projects",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"project.project",
+								"get_projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Create Sale Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"create_order\",\n        \"args\": [\n            {\n                \"project_id\": 15,\n                \"partner_id\": 42,\n                \"loan_id\": 102,\n                \"recurrence_id\": 3,\n                \"confisa_admission_date\": \"2023-07-22\",\n                \"order_line_ids\": [\n                    {\n                        \"product_id\": 50 // Can also use xml id example: product.product_product_40\n                    },\n                    {\n                        \"product_id\": 51 // Can also use xml id example: product.product_product_42\n                    }\n                ],\n                \"identity_document_type\": \"cedula\",\n                \"customer_ID\": \"34878\",\n                \"customer_name\": \"John\",\n                \"vehicle_brand_id\": 4,\n                \"vehicle_model_id\": 2,\n                \"category_id\": 3,\n                \"color\": \"Blue\",\n                \"vin_sn\": \"4567890\",\n                \"license_plate\": \"AD2132\",\n                \"manufacturing_year\": \"2021\"\n            }\n        ],\n        \"kwargs\": {}\n    }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/sale.order/create_order",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"sale.order",
+								"create_order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Update Status Confirmed in Sale Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"action_confirm\",\n        \"args\": [\n            41 // sale order id\n        ],\n        \"kwargs\": {}\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/sale.order/action_confirm",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"sale.order",
+								"action_confirm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Update Status Cancelled in SO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"cancel_order\",\n        \"args\": [\n            7 // A sale order id\n        ],\n        \"kwargs\": {}\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/sale.order/cancel_order",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"sale.order",
+								"cancel_order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Update Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"update_order\",\n        \"args\": [\n            { \n                \"project_id\": 15,\n                \"partner_id\": 71,\n                \"loan_id\": 124,\n                \"recurrence_id\": 4, // set only if the product requires it\n                \"confisa_admission_date\": \"2023-07-23\",\n                \"order_line_ids\": [\n                    {\n                        \"product_id\": 50 // Can also use xml id example: product.product_product_50\n                    },\n                    {\n                        \"product_id\": 51 // Can also use xml id example: product.product_product_51\n                    }\n                ],\n                \"identity_document_type\": \"cedula\",\n                \"customer_ID\": \"34878\",\n                \"customer_name\": \"John\",\n                \"vehicle_brand_id\": 4,\n                \"vehicle_model_id\": 14,\n                \"category_id\": 3,\n                \"color\": \"Blue\",\n                \"vin_sn\": \"4567890\",\n                \"license_plate\": \"AD2132\",\n                \"manufacturing_year\": \"2022\"\n            }\n        ],\n        \"kwargs\": {}\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/sale.order/update_order",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"sale.order",
+								"update_order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Get Installed Services",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"get_installed_services\",\n        \"args\": [\n            {\n                \"loan_id\": \"\",\n                \"customer_ID\": \"\",\n                \"vin_sn\": \"\",\n                \"debtor_code\": \"\"\n            }\n        ],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 2,\n            \"order\": \"id desc\",\n            \"context\": {}\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/sale.order/get_installed_services",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"sale.order",
+								"get_installed_services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Get Orders to Invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"get_orders_to_invoice\",\n        \"args\": [\n            [\n                [\"partner_id.id\", \"in\", [41, 42]], // the ids for the partners to filter\n                [\"state\", \"not in\", [\"draft\", \"cancel\"]],\n                [\"invoice_status\", \"=\", \"to invoice\"],\n                [\"loan_id\", \"=\", \"123\"],\n                [\"customer_ID\", \"=\", \"10987\"],\n                [\"vin_sn\", \"=\", \"4567890\"],\n                [\"debtor_code\", \"=\", \"2132\"]\n            ]\n        ],\n        \"kwargs\": {\n            \"fields\": [ // fileds to return\n                \"id\",\n                \"name\",\n                \"loan_id\",\n                \"customer_ID\",\n                \"vin_sn\", \n                \"debtor_code\",\n                \"invoice_status\",\n                \"state\"\n            ]\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:55001/web/dataset/call_kw/sale.order/get_orders_to_invoice",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55001",
+							"path": [
+								"web",
+								"dataset",
+								"call_kw",
+								"sale.order",
+								"get_orders_to_invoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Get Identification types",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"get_identification_types\",\n        \"args\": [],\n        \"kwargs\": {}\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/sale.order/get_identification_types",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"sale.order",
+								"get_identification_types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Confirm Invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"account.move\",\n        \"method\": \"action_post\",\n        \"args\": [\n            [35] // invoice id to be confirmed\n        ],\n        \"kwargs\": {}\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/account.move/action_post",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"account.move",
+								"action_post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Cancel Invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"account.move\",\n        \"method\": \"button_cancel\",\n        \"args\": [\n            [36]\n        ],\n        \"kwargs\": {}\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/account.move/button_cancel",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"account.move",
+								"button_cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Read Vehicle Model",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"fleet.vehicle.model\",\n        \"method\": \"get_vehicle_model\",\n        \"args\": [],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 2\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/fleet.vehicle.model/get_vehicle_model",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"fleet.vehicle.model",
+								"get_vehicle_model"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Read Vehicle Brand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"fleet.vehicle.model.brand\",\n        \"method\": \"get_vehicle_model_brand\",\n        \"args\": [],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 2\n        }\n    }\n}",							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/fleet.vehicle.model.brand/get_vehicle_model_brand",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"fleet.vehicle.model.brand",
+								"get_vehicle_model_brand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Read Vehicle Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"fleet.vehicle.model.category\",\n        \"method\": \"get_vehicle_category\",\n        \"args\": [],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 2\n        }\n    }\n}",							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/fleet.vehicle.model.category/get_vehicle_category",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"fleet.vehicle.model.category",
+								"get_vehicle_category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Read Recurrence",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.temporal.recurrence\",\n        \"method\": \"get_sale_recurrence\",\n        \"args\": [],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 2\n        }\n    }\n}",							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/sale.temporal.recurrence/get_sale_recurrence",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"sale.temporal.recurrence",
+								"get_sale_recurrence"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Get Partners",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"res.partner\",\n        \"method\": \"get_partners\",\n        \"args\": [],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 2\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/res.partner/get_partners",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"res.partner",
+								"get_partners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Read Invoices",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"account.move\",\n        \"method\": \"get_invoices\",\n        \"args\": [],\n        \"kwargs\": {\n            \"offset\": 0,\n            \"limit\": 2\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/account.move/get_invoices",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"account.move",
+								"get_invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session Invoice Subscription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"model\": \"sale.order\",\n        \"method\": \"create_recurring_invoice\",\n        \"args\": [\n            35,\n            ],\n            \"kwargs\": {\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}web/dataset/call_kw/sale.order/action_confirm",
+							"host": [
+								"{{base_url}}web"
+							],
+							"path": [
+								"dataset",
+								"call_kw",
+								"sale.order",
+								"action_confirm"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jsonrpc",
+			"item": [
+				{
+					"name": "Jsonrpc Ping",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute\",\n        \"args\": [\n            \"openerp_70104_confisa\", // db_name\n            2,\n            \"admin\",\n            \"res.users\",\n            \"ping\"\n        ]\n    }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"common\",\n        \"method\": \"authenticate\",\n        \"args\": [\n            \"openerp_70104_confisa\", // db_name\n            \"admin\", //login\n            \"admin\", // password/token\n            {\n                \"interactive\": false\n            }\n        ]\n    }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Create Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute\",\n        \"args\": [\n            \"openerp_70104_confisa\", // db_name\n            2,\n            \"admin\",\n            \"res.users\",\n            \"get_token\"\n        ]\n    }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Get Debtor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\", // database\n            2, // uid\n            \"admin\", // password or token\n            \"res.partner\", // model\n            \"get_debtor\", // public method\n            [],\n            {\n                \"offset\": 0,\n                \"limit\": 3,\n                \"order\": \"id asc\",\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Get Services",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"get_services\",\n            [\n                {\n                    \"loan_id\": \"104\",\n                    \"customer_ID\": \"34878\",\n                    \"vat\": \"1-01-09009-1\",\n                    \"vin_sn\": \"4567890\",\n                    \"debtor_code\": \"2132\",\n                    \"invoice_date\": \"2023-07-25\",\n                    \"confisa_admission_date\": \"2023-07-13\"\n                }\n            ],\n            {\n                \"offset\": 0,\n                \"limit\": 1,\n                \"order\": \"id asc\",\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Get Invoice Info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\", // database\n            2, // uid\n            \"admin\",\n            \"sale.order\",\n            \"get_invoices_info\",\n            [\n                {\n                    \"debtor_code\": \"2132\",\n                    \"invoice_date\": \"2023-07-25\"\n                }\n            ],\n            {\n                \"offset\": 0,\n                \"limit\": 1,\n                \"order\": \"id asc\",\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Read Confisa Products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\", // database\n            2, // uid\n            \"admin\",\n            \"product.product\",\n            \"get_confisa_products\",\n            [],\n            {\n                \"offset\": 0,\n                \"limit\": 3\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Read Projects",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\", // db_name\n            2,\n            \"admin\",\n            \"project.project\",\n            \"get_projects\",\n            [],\n            {\n                \"offset\": 0,\n                \"limit\": 3\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Create Sale Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\", // db_name\n            2, // user_uid\n            \"admin\", // password/token\n            \"sale.order\", // model\n            \"create_order\", // public method\n            [\n                {\n                    \"project_id\": 15,\n                    \"partner_id\": 42,\n                    \"loan_id\": 103,\n                    \"recurrence_id\": 3,\n                    \"confisa_admission_date\": \"2023-07-22\",\n                    \"order_line_ids\": [\n                        {\n                            \"product_id\": 50 // Can also use xml id example: product.product_product_40\n                        },\n                        {\n                            \"product_id\": 51 // Can also use xml id example: product.product_product_42\n                        }\n                    ],\n                    \"identity_document_type\": \"cedula\",\n                    \"customer_ID\": \"34878\",\n                    \"customer_name\": \"John\",\n                    \"vehicle_brand_id\": 4,\n                    \"vehicle_model_id\": 2,\n                    \"category_id\": 3,\n                    \"color\": \"Blue\",\n                    \"vin_sn\": \"4567890\",\n                    \"license_plate\": \"AD2132\",\n                    \"manufacturing_year\": \"2021\"\n                }\n            ],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Update Status Confirmed in Sale Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"action_confirm\",\n            [\n                41\n            ],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Update Status Cancelled in Sale Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"cancel_order\",\n            [\n                38\n            ],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Update Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"update_order\",\n            [\n                { \n                    \"project_id\": 15,\n                    \"partner_id\": 71,\n                    \"loan_id\": 124,\n                    \"recurrence_id\": 4, // set only if the product requires it\n                    \"confisa_admission_date\": \"2023-07-22\",\n                    \"order_line_ids\": [\n                        {\n                            \"product_id\": 50 // Can also use xml id example: product.product_product_50\n                        },\n                        {\n                            \"product_id\": 51 // Can also use xml id example: product.product_product_51\n                        }\n                    ],\n                    \"identity_document_type\": \"cedula\",\n                    \"customer_ID\": \"34878\",\n                    \"customer_name\": \"John\",\n                    \"vehicle_brand_id\": 4,\n                    \"vehicle_model_id\": 14,\n                    \"category_id\": 3,\n                    \"color\": \"Blue\",\n                    \"vin_sn\": \"4567890\",\n                    \"license_plate\": \"AD2132\",\n                    \"manufacturing_year\": \"2021\"\n                }\n            ],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Get Installed Services",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"get_installed_services\",\n            [\n                {\n                    \"loan_id\": \"10273\",\n                    \"customer_ID\": \"34878\",\n                    \"vin_sn\": \"4567890\",\n                    \"debtor_code\": \"2132\"\n                }\n            ],\n            {\n                \"offset\": 0,\n                \"limit\": 2,\n                \"order\": \"id asc\",\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Get Orders to Invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"get_orders_to_invoice\",\n            [\n                [\n                    [\"partner_id.id\", \"in\", [41, 42]], // the ids for the partners to filter\n                    [\"state\", \"not in\", [\"draft\", \"cancel\"]],\n                    [\"invoice_status\", \"=\", \"to invoice\"],\n                    [\"loan_id\", \"=\", \"123\"],\n                    [\"customer_ID\", \"=\", \"10987\"],\n                    [\"vin_sn\", \"=\", \"4567890\"],\n                    [\"debtor_code\", \"=\", \"2132\"]\n                ]\n            ],\n            {\n                \"fields\": [ // fileds to return\n                    \"id\",\n                    \"name\",\n                    \"loan_id\",\n                    \"customer_ID\",\n                    \"vin_sn\", \n                    \"debtor_code\",\n                    \"invoice_status\",\n                    \"state\"\n                ],\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Get Identification types",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"get_identification_types\"\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Confirm Invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"account.move\",\n            \"action_post\",\n            [\n                [36]\n            ],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Cancel Invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"account.move\",\n            \"button_cancel\",\n            [\n                [36]\n            ],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Read Vehicle Model",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"fleet.vehicle.model\",\n            \"get_vehicle_model\",\n            [],\n            {\n                \"offset\": 0,\n                \"limit\": 3\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Read Vehicle Brand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"fleet.vehicle.model.brand\",\n            \"get_vehicle_model_brand\",\n            [],\n            {\n                \"offset\": 0,\n                \"limit\": 3\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Read Vehicle Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"fleet.vehicle.model.category\",\n            \"get_vehicle_category\",\n            [],\n            {\n                \"offset\": 0,\n                \"limit\": 3\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Read Recurrence",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.temporal.recurrence\",\n            \"get_sale_recurrence\",\n            [],\n            {\n                \"offset\": 0,\n                \"limit\": 3\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Get Partners",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\", // database\n            2, // uid\n            \"admin\",\n            \"res.partner\",\n            \"get_partners\",\n            [],\n            {\n                \"offset\": 0,\n                \"limit\": 3\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Read Invoices",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"account.move\",\n            \"get_invoices\",\n            [],\n            {\n                \"offset\": 0,\n                \"limit\": 3\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jsonrpc Invoice Subscription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 16,\n    \"params\": {\n        \"service\": \"object\",\n        \"method\": \"execute_kw\",\n        \"args\": [\n            \"openerp_70104_confisa\",\n            2,\n            \"admin\",\n            \"sale.order\",\n            \"create_recurring_invoice\",\n            [\n                47\n            ],\n            {\n                \"context\": {}\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}jsonrpc",
+							"host": [
+								"{{base_url}}jsonrpc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
