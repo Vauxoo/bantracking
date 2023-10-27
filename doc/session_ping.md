@@ -1,6 +1,8 @@
 Pinging the service to check its availability Using Session
 ===========================================
 
+This controller allows pinging our service to check if it's operational and receiving requests. It returns a boolean value true. The request should only be made to the endpoint without sending any parameters.
+
 Call a method
 -------------
 

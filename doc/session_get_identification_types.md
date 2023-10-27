@@ -1,6 +1,8 @@
 Get the identification types Using Session
 =============================
 
+This controller retrieves the identification types for owners that will be sent in the orders. The request should only be made to the endpoint without sending any parameters.
+
 Call a method
 -------------
 

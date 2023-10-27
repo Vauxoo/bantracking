@@ -1,6 +1,8 @@
 Update Status of a Sale Order Using Jsonrpc
 ===========================================
 
+This endpoint allows to update the Sales order status to be confirmed `(sale)` or cancelled `(cancel)`.
+
 Call a method
 -------------
 

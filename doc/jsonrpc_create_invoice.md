@@ -1,5 +1,7 @@
-Invoice Subscription Using Jsonrpc
+Create Invoice Using Jsonrpc
 ===========================================
+
+This endpoint allows to create an invoice for a Sales order. The invoice will be in `draft` status, not yet confirmed.
 
 Call a method
 -------------
@@ -41,7 +43,7 @@ The method expects to receive a JSON object in the request body with the followi
 | `[5] - args`           | list    | The positional arguments of the method, provided as a JSON-encoded list.|
 | `[6] - kwargs`         | dict    | The keyword arguments of the method, provided as a JSON-encoded object. |
 
-Confirm an invoice subscription in your database
+Create an invoice subscription in your database
 -----------------------------------
 
 1. Use `create_recurring_invoice` method on a database to create an invoice subscription for a sale order with authenticated user in Odoo:

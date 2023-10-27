@@ -1,6 +1,9 @@
 Create Sales Orders
 ===========================================
 
+This endpoint allows to create  new sale order. When using this endpoint, there are some important considerations to keep in mind. First of all, it is mandatory to provide a loan ID with each order you wish to place. This Loan ID is a unique identifier that helps avoid duplicate registrations and ensures that orders are assigned correctly. Secondly, it is important to note that insertion of a Loan ID that has already been previously entered will not be allowed, even if the corresponding order is later cancelled. This helps keep a clean database and avoid confusion in the future.
+The initial status of the orders will be "to invoice".
+
 Call a method
 -------------
 
@@ -73,7 +76,7 @@ The method expects to receive a JSON object in the request body with the followi
 | `project_id`                    | integer           | Project ID                                          |
 | `partner_id`                    | integer           | Partner ID                                          |
 | `loan_id`                       | integer           | Loan ID                                             |
-| `recurrence_id`                 | integer           | Recurrence ID                                       |
+| `recurrence_id`                 | integer           | Recurrence ID (Only required if a product of the Sale order has recurrency)          |
 | `confisa_admission_date`        | string            | Admission Date to Confisa (e.g. "2023-07-22")        |
 | `order_line_ids`                | list              | Dictionary of product ID's                          |
 | `identity_document_type`        | string            | Documentation Type (cedula, passport, rnc)          |

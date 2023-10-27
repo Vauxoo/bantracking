@@ -1,6 +1,8 @@
 Get Debtors Using Session
 ===========================================
 
+This controller obtains information from Banco Confisa and Leasing Confisa, such as the debtor, debtor code, rnc and the company code in the Web Service. Only the request should be made to the endpoint without sending any aditional parameters.
+
 Call a method
 -------------
 
@@ -66,7 +68,19 @@ POST /web/dataset/call_kw/res.partner/get_debtor
 
 ## Input Parameters
 
+The method expects to receive a JSON object in the request body with the following parameters:
+
+## `args` structure
+
 No input values are required into the args list.
+
+## `kwargs` structure
+
+| Name                   | Type    | Description                                                             |
+|------------------------|---------|-------------------------------------------------------------------------|
+| `offset`               | integer | The offset for the records to retrieve                                  |
+| `limit`                | integer | Maximum limit of records to retrieve                                    |
+| `order`                | string  | Specifies the ordering of the results for a specific field. Use `asc` for ascending order or `desc` for descending order. (e.g. "id asc") |
 
 ## Response
 

@@ -1,6 +1,8 @@
 Create Token for authentication
 ===========================================
 
+This controller allows to create a token using a username and password. Returns a token valid for 30 minutes that gives access to the other controllers in the service.
+
 Call a method
 -------------
 

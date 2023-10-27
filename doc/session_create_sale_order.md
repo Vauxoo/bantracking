@@ -1,6 +1,9 @@
 Create Sales Orders Using Session
 ===========================================
 
+This endpoint allows to create  new sale order. When using this endpoint, there are some important considerations to keep in mind. First of all, it is mandatory to provide a loan ID with each order you wish to place. This Loan ID is a unique identifier that helps avoid duplicate registrations and ensures that orders are assigned correctly. Secondly, it is important to note that insertion of a Loan ID that has already been previously entered will not be allowed, even if the corresponding order is later cancelled. This helps keep a clean database and avoid confusion in the future.
+The initial status of the orders will be "to invoice".
+
 Call a method
 -------------
 

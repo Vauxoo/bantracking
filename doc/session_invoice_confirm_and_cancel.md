@@ -1,6 +1,8 @@
 Confirm or Cancel an Invoice Using Session
 ===============================
 
+This endpoint allows to update the invoice status to be confirmed `(posted)` or cancelled `(cancel)`.
+
 Call a method
 --------------
 

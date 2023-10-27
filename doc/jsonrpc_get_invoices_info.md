@@ -1,6 +1,8 @@
 Get Data for Invoices related with Sale orders
 ===========================================
 
+This endpoint allows you to consult and view Banco Confisa and Leasing Confisa invoices, each with its different services that belong to them.
+
 Call a method
 -------------
 
@@ -70,8 +72,8 @@ The method expects to receive a JSON object in the request body with the followi
 
 | Name                            | Type              | Description                                          |
 |---------------------------------|-------------------|------------------------------------------------------|
-| `debtor_code`                   | string            | Debtor Code                                          |
-| `invoice_date`                  | string            | Indicates the Invoice Date (e.g. "2023-07-22")        |
+| `debtor_code`                   | string            | Debtor Code (Optional)                                        |
+| `invoice_date`                  | string            | Indicates the Invoice Date (full date is accepted, but only the month and year will be considered for the filter, e.g. "2023-07-25") (Optional)        |
 
 ## Response
 

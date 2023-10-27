@@ -1,6 +1,8 @@
 Authenticate With Session
 =========================
 
+This controller allows to authenticate the user by passing the database name, the username and password. It returns in the result an integer, which is the user ID authenticated.
+
 Login to your database
 ---
 
@@ -28,7 +30,7 @@ The method expects to receive a JSON object in the request body with the followi
 | Name        | Type    | Description                                             |
 |-------------|---------|---------------------------------------------------------|
 | `db`        | string  | Odoo database name.                                     |
-| `login`     | string  | User name or email address.                             |
+| `login`     | string  | Username or email address.                             |
 | `password`  | string  | User's password.                                        |
 | `base`      | string  | Odoo base URL. Defaults to `false`.                     |
 
@@ -54,8 +56,9 @@ The method returns a JSON object as a response:
 | `web.base.url`        | string  | Url base. (web.base.url param)                                                        |
 | `active_ids_limit`    | integer | Maximum number of records that can be processed. (web.active_ids_limit param)         |
 | `max_file_upload_size`| integer | Maximum allowed file size(bytes) for file uploads. (web.max_file_upload_size param)   |
-| `currencies`          | dict    | Allowed Companies                                                                     |
-| `user_companies`      | dict    | Maximum number of records that can be processed. (web.active_ids_limit param)         |
+| `currencies`          | dict    | Allowed Currencies                                      |
+| `user_companies`      | dict    | 
+Companies to which the current user belongs. Also shows the current user's company.         |
 
 ## Request Example
 

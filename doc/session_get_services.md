@@ -1,6 +1,8 @@
 Get Info for the Active Services Using Session
 ===========================================
 
+This controller allows you to obtain information about all active services of Banco Confisa and Leasing Confisa after logging in and having a valid token. It also allows applying various filters to refine the information returned by the service.
+
 Call a method
 -------------
 
@@ -64,13 +66,13 @@ The method expects to receive a JSON object in the request body with the followi
 
 | Name                            | Type              | Description                                                |
 |---------------------------------|-------------------|------------------------------------------------------------|
-| `loan_id`                       | string            | Loan ID                                                    |
-| `customer_ID`                   | string            | Indicates the number (ID) of the Identification            |
-| `vat`                           | string            | Indicates the Debtor RNC                                   |
-| `vin_sn`                        | string            | Chassis                                                    |
-| `debtor_code`                   | string            | Debtor Code                                                |
-| `invoice_date`                  | string            | Indicates the Invoice Date (e.g. "2023-07-25")              |
-| `confisa_admission_date`        | string            | Indicates the Admission Date to Confisa (e.g. "2023-07-22") |
+| `loan_id`                       | string            | Loan ID (Optional)                                                   |
+| `customer_ID`                   | string            | Indicates the number (ID) of the Identification (Optional)           |
+| `vat`                           | string            | Indicates the Debtor RNC (Optional)                                  |
+| `vin_sn`                        | string            | Chassis (Optional)                                                   |
+| `debtor_code`                   | string            | Debtor Code (Optional)                                               |
+| `invoice_date`                  | string            | Indicates the Invoice Date (full date is accepted, but only the month and year will be considered for the filter, e.g. "2023-07-25") (Optional)             |
+| `confisa_admission_date`        | string            | Indicates the Admission Date to Confisa (full date is accepted, but only the month and year will be considered for the filter, e.g. "2023-07-25") (Optional)|
 
 ## Response
 

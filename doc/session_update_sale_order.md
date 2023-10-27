@@ -1,6 +1,8 @@
 Update Sales Orders Using Session
 =============================
 
+This endpoint allows updating data for a sale order. The loan_id is required.
+
 Call a method
 -------------
 

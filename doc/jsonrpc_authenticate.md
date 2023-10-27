@@ -1,5 +1,7 @@
-API
+Authenticate
 ===
+
+This controller allows to authenticate the user by passing the database name, the username and password. It returns in the result an integer, which is the user ID authenticated.
 
 Login to your database
 ---

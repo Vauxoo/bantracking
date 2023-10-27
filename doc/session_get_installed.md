@@ -1,6 +1,8 @@
 Get Info for the Installed Services Using Session
 ===========================================
 
+This endpoint will allow retrieving the services for which the devices have been installed and processed after the orders have been sent.
+
 Call a method
 -------------
 
@@ -64,10 +66,10 @@ The method expects to receive a JSON object in the request body with the followi
 
 | Name                            | Type              | Description                                                     |
 |---------------------------------|-------------------|-----------------------------------------------------------------|
-| `loan_id`                       | string            | Loan ID (maxlength=50)                                          |
-| `customer_ID`                   | string            | Indicates the number (ID) of the Identification (maxlength=40)  |
-| `vin_sn`                        | string            | Chassis (maxlength=50)                                          |
-| `debtor_code`                   | string            | Debtor Code (maxlength=50)                                      |
+| `loan_id`                       | string            | Loan ID (maxlength=50) (Optional)                                         |
+| `customer_ID`                   | string            | Indicates the number (ID) of the Identification (maxlength=40) (Optional) |
+| `vin_sn`                        | string            | Chassis (maxlength=50) (Optional)                                         |
+| `debtor_code`                   | string            | Debtor Code (maxlength=50) (Optional)                                     |
 
 ## Response
 

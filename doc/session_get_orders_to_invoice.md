@@ -1,6 +1,8 @@
 Get Sale Orders to invoice Using Session
 ===========================================
 
+This endpoint allows you to retrieve all orders that are not in the `draft` or `cancel` state
+
 Call a method
 -------------
 
@@ -34,59 +36,19 @@ The method expects to receive a JSON object in the request body with the followi
 Get Sale Orders to Invoice
 -------------------------------------
 
-1. Use `search_read` method on a database to get the Sale orders to invoice with authenticated user in Odoo:
+1. Use `get_orders_to_invoice` method on a database to get the Sale orders to invoice with authenticated user in Odoo:
 
     ```python
     @api.model
-    def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None, **read_kwargs):
-        """Perform a :meth:`search` followed by a :meth:`read`.
-
-        :param domain: Search domain, see ``args`` parameter in :meth:`search`.
-            Defaults to an empty domain that will match all records.
-        :param fields: List of fields to read, see ``fields`` parameter in :meth:`read`.
-            Defaults to all fields.
-        :param int offset: Number of records to skip, see ``offset`` parameter in :meth:`search`.
-            Defaults to 0.
-        :param int limit: Maximum number of records to return, see ``limit`` parameter in :meth:`search`.
-            Defaults to no limit.
-        :param order: Columns to sort result, see ``order`` parameter in :meth:`search`.
-            Defaults to no sort.
-        :param read_kwargs: All read keywords arguments used to call
-            ``read(..., **read_kwargs)`` method e.g. you can use
-            ``search_read(..., load='')`` in order to avoid computing name_get
-        :return: List of dictionaries containing the asked fields.
-        :rtype: list(dict).
-        """
-        records = self.search(domain or [], offset=offset, limit=limit, order=order)
-        if not records:
-            return []
-
-        if fields and fields == ['id']:
-            # shortcut read if we only want the ids
-            return [{'id': record.id} for record in records]
-
-        # read() ignores active_test, but it would forward it to any downstream search call
-        # (e.g. for x2m or function fields), and this is not the desired behavior, the flag
-        # was presumably only meant for the main search().
-        # TODO: Move this to read() directly?
-        if 'active_test' in self._context:
-            context = dict(self._context)
-            del context['active_test']
-            records = records.with_context(context)
-
-        result = records.read(fields, **read_kwargs)
-        if len(result) <= 1:
-            return result
-
-        # reorder read
-        index = {vals['id']: vals for vals in result}
-        return [index[record.id] for record in records if record.id in index]
+    def get_orders_to_invoice(self, domain=None, fields=None, offset=0, limit=None, order=None, **read_kwargs):
+        """Get orders to invoice."""
+        return self._get_orders_to_invoice(domain, fields, offset, limit, order, **read_kwargs)
     ```
 
 ## URL
 
 ```
-POST /web/dataset/call_kw/sale.order/search_read
+POST /web/dataset/call_kw/sale.order/get_orders_to_invoice
 ```
 
 ## Input Parameters
@@ -121,7 +83,7 @@ The method returns a JSON object as a response:
     "id": 16,
     "params": {
         "model": "sale.order",
-        "method": "search_read",
+        "method": "get_orders_to_invoice",
         "args": [
             [
                 ["partner_id.id", "in", [42, 43]], // ids for the partners to filter
@@ -144,7 +106,7 @@ The method returns a JSON object as a response:
                 "invoice_status",
                 "state"
             ],
-            "limit": 1, // optional params in the search_read method
+            "limit": 1, // optional params
             "offset": 0,
             "order": "id asc",
             "context": {}
@@ -177,7 +139,7 @@ The method returns a JSON object as a response:
 ## cURL Example
 
 ```bash
-curl --location 'http://localhost:8069/web/dataset/call_kw/sale.order/search_read' \
+curl --location 'http://localhost:8069/web/dataset/call_kw/sale.order/get_orders_to_invoice' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: frontend_lang=en_US; session_id=8ace287e798f31740242c2a1cdbe8b45352d7e72' \
 --data-raw '{
@@ -185,7 +147,7 @@ curl --location 'http://localhost:8069/web/dataset/call_kw/sale.order/search_rea
     "id": 16,
     "params": {
         "model": "sale.order",
-        "method": "search_read",
+        "method": "get_orders_to_invoice",
         "args": [
             [
                 ["partner_id.id", "in", [42, 43]],
