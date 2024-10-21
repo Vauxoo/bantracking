@@ -1,12 +1,8 @@
 [submodule "bantracking"]
 	path = bantracking
 	url = git@git.vauxoo.com:vauxoo/bantracking.git
-	branch = 16.0
-[submodule "sh-tools"]
-	path = sh-tools
-	url = git@git.vauxoo.com:vauxoo/sh-tools.git
-	branch = 16.0
+	branch = 17.0-masterclass-desdelinux
 [submodule "brand"]
 	path = brand
 	url = git@github.com:OCA/brand.git
-	branch = 16.0
+	branch = 17.0
